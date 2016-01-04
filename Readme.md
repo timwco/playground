@@ -5,3 +5,5 @@ Sometimes when learning JavaScript, you want to open the Chrome or Firefox devel
 Also, I built in support for a few common libraries. To use any of the supported libraries, just add it to the query string.
 
 Like so - `?j` would load jQuery, where `?j&u` would load jQuery and Underscore, and so on.
+
+Demo here - [http://timw.co/playground](http://timw.co/playground)
