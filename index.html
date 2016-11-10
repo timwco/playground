@@ -1,20 +1,46 @@
 <!doctype html>
 <html>
 <head>
-    <title>Playground</title>
-    <link rel="stylesheet" href="assets/styles/main.css"/>
-    <link rel="icon" href="favicon2.ico" type="image/x-icon" />
+  <title>Playground</title>
+  <link rel="stylesheet" href="assets/styles/bulma.css">
+  <link rel="stylesheet" href="assets/styles/main.css"/>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
 </head>
 <body>
 
-    <h4>Installed</h4>
+  <div class="container content">
+    <h4 class="title is-3">Console Playground <span class="tag modal-open is-dark">About?</span></h4>
+    <article class="message">
+      <div class="message-header">Demo Element</div>
+      <div class="message-body">
+        <div id="box">
+          <p>Here are some elements you can practice with. Go ahead, try selecting me!</p>
+          <pre>var box = document.getElementById("box");</pre>
+          <p><button class="button">A Cool Button</button></p>
+          <pre>document.querySelector(".button").addEventListener("click", ... );</pre>
+        </div>
+      </div>
+    </article>
+  </div>
 
-    <ul id="list"></ul>
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content">
+      <article class="message">
+        <div class="message-header">About</div>
+        <div class="message-body content">
+          <p>This website provides a blank canvas for playing with a browser console. There is no code loaded on this page that will cause any errors or change the default state of the Window.</p>
+          <p>However, if you would like to install some libraries to play with, you can do so by appending any of the terms as query parameters. Here are a list of the libraries supported:</p>
+          <ul>
+            <li><span class="tag">jquery</span> - jQuery 3.1.1</li>
+            <li><span class="tag">lodash</span> - Lodash 4.16.6</li>
+            <li><span class="tag">moment</span> - Moment 2.16.0</li>
+          </ul>
+      </article>
+    </div>
+    <button class="modal-close"></button>
+  </div>
 
-    <pre>Supported: (j)Query, (u)nderscore, (a)ngular, (c)ookies, (b)ackbone</pre>
-
-    <script src="assets/scripts/main.js"></script>
-
+  <script src="assets/scripts/main.js"></script>
 </body>
 </html>
-

@@ -2,44 +2,43 @@
 
   'use strict';
 
-  var script_tag, checkQuery, addScript, listTag, elem;
+  const libraries = ['jquery', 'lodash', 'moment'];
+  const modal = document.querySelector('.modal');
+  const close = document.querySelector('.modal-close');
+  const open = document.querySelector('.modal-open');
 
+  // Modal Open/Close
+  open.addEventListener('click', event => {
+    event.preventDefault();
+    modal.classList.add('is-active');
+  });
+  close.addEventListener('click', event => {
+    event.preventDefault();
+    modal.classList.remove('is-active');
+  });
+  
 
-  checkQuery = function (q) {
-  	var url = window.location.href;
-  	if(url.indexOf('?' + q) != -1)
+  // Checks the Querystring for libraries installed
+  function checkQuery (lib) {
+  	let url = window.location.href;
+  	if(url.indexOf('?' + lib) != -1)
   		return true;
-  	else if(url.indexOf('&' + q) != -1)
+  	else if(url.indexOf('&' + lib) != -1)
   		return true;
   	return false
   };
 
-
-  addScript = function (which) {
-  	script_tag = document.createElement('script');
-  	script_tag.setAttribute('src', 'assets/vendor/' + which + '.js');
+  // Add's Script to Page
+  function addScript (lib) {
+  	let script_tag = document.createElement('script');
+  	script_tag.setAttribute('src', 'assets/vendor/' + lib + '.js');
   	document.body.appendChild(script_tag);
-
-  	listTag = document.getElementById('list');
-  	elem = document.createElement('li');
-  	elem.textContent = which;
-  	listTag.appendChild(elem);
+    console.log(`${lib} was successfully installed.`);
   };
 
-
-  // jQuery
-  if (checkQuery('j')) { addScript('jquery') }
-
-  // Underscore
-  if (checkQuery('u')) { addScript('underscore') }
-
-  // Angular
-  if (checkQuery('a')) { addScript('angular') }
-
-  // Cookie
-  if (checkQuery('c')) { addScript('cookies') }
-
-  // Backbone
-  if (checkQuery('b')) { addScript('backbone') }
+  // Check for Libraries
+  libraries.forEach( lib => {
+    if (checkQuery(lib)) { addScript(lib); }
+  });
 
 }())
